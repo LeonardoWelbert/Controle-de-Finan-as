@@ -1,0 +1,214 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+    outline: none;
+}
+
+body {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+
+    background-image: url("fundo.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+main {
+    max-width: 550px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    margin: 20px;
+}
+
+/* resumo financeiro */
+
+.resume {
+    display: flex;
+    padding: 10px 0;
+    width: 100%;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.resume > div {
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0px 0px 5px #ccc;
+    border-radius: 12px;
+    padding: 10px;
+    width: 150px;
+    text-align: center;
+    margin: 10px;
+}
+
+/* formulário */
+
+.newItem {
+    display: flex;
+    gap: 10px;
+    align-items: end;
+    width: 100%;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.divDesc,
+.divType,
+.divValue {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.newItem > button {
+    background-color: #2C73D2;
+    color: white;
+    border: none;
+    padding: 0 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    height: 34px;
+}
+
+.newItem > button:hover {
+    background-color: #0056b3;
+}
+
+input,
+select {
+    padding: 5px;
+}
+
+/* tabela */
+
+.divTable{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    max-height: 500px;   /* limita a altura */
+    overflow-y: auto;    /* cria scroll interno */
+}
+
+thead th{
+    position: sticky;
+    top: 0;
+    background: white;
+}
+
+table {
+    width: 98%;
+    border-radius: 5px;
+    padding: 20px 0;
+}
+
+th,
+td {
+    padding: 12px 15px;
+    text-align: start;
+    border-bottom: inset 1px #ccc;
+}
+
+th {
+    text-align: left;
+}
+
+i {
+    font-size: 25px;
+}
+
+.bxs-chevron-up-circle {
+    color: green;
+}
+
+.bxs-chevron-down-circle {
+    color: red;
+}
+
+.columnAction {
+    width: 50px;
+    text-align: center;
+}
+
+.columnAction > button {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+}
+
+.columnAmount {
+    white-space: nowrap;
+    text-align: right;
+}
+
+.columnType {
+    width: 20%;
+    text-align: center;
+}
+
+/* gráfico */
+
+.chartBox {
+    width: 100%;
+    max-width: 350px;
+    height: 350px;
+    margin-top: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.chartBox canvas {
+    width: 100% !important;
+    height: 100% !important;
+}
+
+/* Responsividade */
+
+@media (max-width: 600px){
+
+main{
+    max-width: 100%;
+    margin: 10px;
+    padding: 15px;
+}
+
+.resume{
+    flex-direction: column;
+    align-items: center;
+}
+
+.resume > div{
+    width: 90%;
+}
+
+.newItem{
+    flex-direction: column;
+    align-items: stretch;
+}
+
+.newItem button{
+    width: 100%;
+}
+
+table{
+    font-size: 14px;
+}
+
+.chartBox{
+    max-width: 280px;
+    height: 280px;
+}
+
+}
+

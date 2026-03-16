@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" href="fundo2.png" type="image/png">
+
+<title>Controle de Finanças</title>
+
+<link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+<link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+<main> 
+
+<!-- controle do mês -->
+<div class="monthControl">
+
+<label>Mês:</label> 
+<input type="month" id="month">
+
+</div>
+
+
+<!-- resumo financeiro -->
+<div class="resume">
+
+<div>
+Entradas
+<span class="incomes">R$ 0,00</span>
+</div>
+
+<div>
+Saídas
+<span class="expenses">R$ 0,00</span>
+</div>
+
+<div>
+Saldo
+<span class="balance">R$ 0,00</span>
+</div>
+
+</div>
+
+
+<!-- formulário -->
+<div class="newItem">
+
+<div class="divDesc">
+<label for="desc">Descrição</label>
+<input type="text" id="desc">
+</div>
+
+<div class="divValue">
+<label for="amount">Valor</label>
+<input type="number" id="amount" min="0" step="0.01">
+</div>
+
+<div class="divType">
+<label for="type">Tipo</label>
+
+<select id="type">
+<option value="income">Entrada</option>
+<option value="expense">Saída</option>
+</select>
+
+</div>
+
+<button id="btnNew">Adicionar</button>
+
+</div>
+
+
+<!-- tabela -->
+<div class="divTable">
+
+<table>
+
+<thead>
+<tr>
+<th>Descrição</th>
+<th class="columnAmount">Valor</th>
+<th>Data</th>
+<th class="columnType">Tipo</th>
+<th class="columnAction"></th>
+</tr>
+</thead>
+
+<tbody></tbody>
+
+</table>
+
+</div>
+
+
+<!-- gráfico -->
+<div class="chartBox"> 
+<canvas id="financeChart"></canvas>
+</div>
+
+</main>
+
+<!-- biblioteca -->
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<!-- seu script -->
+<script src="script.js"></script>
+
+</body>
+</html>
