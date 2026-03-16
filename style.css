@@ -177,40 +177,238 @@ i {
 
 /* Responsividade */
 
-@media (max-width: 600px){
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Poppins',sans-serif;
+outline:none;
+}
+
+body{
+min-height:100vh;
+display:flex;
+justify-content:center;
+
+background-image:url("fundo.png");
+background-size:cover;
+background-position:center;
+background-repeat:no-repeat;
+
+/* remove bug mobile */
+background-attachment:scroll;
+}
+
+/* container principal */
 
 main{
-    max-width: 100%;
-    margin: 10px;
-    padding: 15px;
+max-width:600px;
+width:100%;
+display:flex;
+flex-direction:column;
+align-items:center;
+padding:20px;
+background:#fff;
+border-radius:10px;
+box-shadow:0 4px 10px rgba(0,0,0,0.1);
+margin:20px;
 }
+
+/* resumo financeiro */
 
 .resume{
-    flex-direction: column;
-    align-items: center;
+display:flex;
+gap:10px;
+width:100%;
+justify-content:space-between;
+flex-wrap:wrap;
 }
 
-.resume > div{
-    width: 90%;
+.resume div{
+flex:1;
+min-width:120px;
+display:flex;
+flex-direction:column;
+align-items:center;
+justify-content:center;
+box-shadow:0 0 5px #ccc;
+border-radius:12px;
+padding:10px;
+text-align:center;
 }
+
+/* formulário */
 
 .newItem{
-    flex-direction: column;
-    align-items: stretch;
+display:flex;
+gap:10px;
+width:100%;
+flex-wrap:wrap;
+align-items:flex-end;
+}
+
+.divDesc,
+.divType,
+.divValue{
+flex:1;
+min-width:120px;
+display:flex;
+flex-direction:column;
+gap:5px;
+}
+
+input,
+select{
+padding:8px;
+border-radius:5px;
+border:1px solid #ccc;
 }
 
 .newItem button{
-    width: 100%;
+background:#2C73D2;
+color:white;
+border:none;
+padding:10px;
+border-radius:5px;
+cursor:pointer;
+}
+
+.newItem button:hover{
+background:#0056b3;
+}
+
+/* tabela */
+
+.divTable{
+width:100%;
+overflow-x:auto;
+max-height:400px;
+overflow-y:auto;
+margin-top:20px;
 }
 
 table{
-    font-size: 14px;
+width:100%;
+min-width:500px;
+border-collapse:collapse;
+}
+
+thead th{
+position:sticky;
+top:0;
+background:white;
+z-index:2;
+}
+
+th,td{
+padding:10px;
+border-bottom:1px solid #ddd;
+white-space:nowrap;
+}
+
+th{
+text-align:left;
+}
+
+.columnAmount{
+text-align:right;
+}
+
+.columnType{
+text-align:center;
+}
+
+.columnAction{
+text-align:center;
+width:50px;
+}
+
+.columnAction button{
+background:transparent;
+border:none;
+cursor:pointer;
+}
+
+i{
+font-size:22px;
+}
+
+.bxs-chevron-up-circle{
+color:green;
+}
+
+.bxs-chevron-down-circle{
+color:red;
+}
+
+/* gráfico */
+
+.chartBox{
+width:100%;
+max-width:350px;
+height:350px;
+margin-top:30px;
+display:flex;
+justify-content:center;
+align-items:center;
+}
+
+.chartBox canvas{
+width:100%!important;
+height:100%!important;
+}
+
+/* ---------- RESPONSIVO ---------- */
+
+@media (max-width:768px){
+
+main{
+margin:10px;
+padding:15px;
+}
+
+.resume{
+flex-direction:column;
+}
+
+.resume div{
+width:100%;
+}
+
+.newItem{
+flex-direction:column;
+}
+
+.divDesc,
+.divType,
+.divValue{
+width:100%;
+}
+
+.newItem button{
+width:100%;
 }
 
 .chartBox{
-    max-width: 280px;
-    height: 280px;
+max-width:280px;
+height:280px;
+}
+
+table{
+font-size:14px;
 }
 
 }
 
+@media (max-width:480px){
+
+table{
+font-size:13px;
+}
+
+.chartBox{
+max-width:240px;
+height:240px;
+}
+
+}
