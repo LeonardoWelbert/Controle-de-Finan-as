@@ -1,3 +1,4 @@
+/* --- CONFIGURAÇÕES GERAIS --- */
 * {
     margin: 0;
     padding: 0;
@@ -7,126 +8,70 @@
 }
 
 body {
-    height: 100vh;
+    min-height: 100vh;
     display: flex;
     justify-content: center;
-
     background-image: url("fundo.png");
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    background-attachment: fixed;
+    background-attachment: fixed; 
+    padding: 20px;
 }
 
+/* --- CONTAINER PRINCIPAL --- */
 main {
-    max-width: 550px;
+    max-width: 600px;
     width: 100%;
+    background-color: #fff;
+    border-radius: 15px;
+    padding: 20px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.monthControl {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    font-weight: bold;
+}
+
+/* --- RESUMO FINANCEIRO (Cards) --- */
+.resume {
+    display: flex;
+    gap: 10px;
+    width: 100%;
+}
+
+.resume div {
+    flex: 1;
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 20px;
-    background-color: #fff;
+    padding: 10px 5px;
     border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-    margin: 20px;
-}
-
-/* resumo financeiro */
-
-.resume {
-    display: flex;
-    padding: 10px 0;
-    width: 100%;
-    justify-content: space-between;
-    flex-wrap: wrap;
-}
-
-.resume > div {
-    display: flex;
-    flex-direction: column;
-    box-shadow: 0px 0px 5px #ccc;
-    border-radius: 12px;
-    padding: 10px;
-    width: 150px;
+    background: #f8f9fa;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    font-size: 0.85rem;
     text-align: center;
-    margin: 10px;
 }
 
-/* formulário */
+.resume span {
+    font-weight: bold;
+    font-size: 1rem;
+    margin-top: 5px;
+}
 
+/* --- FORMULÁRIO (Novo Item) --- */
 .newItem {
     display: flex;
+    flex-wrap: wrap; 
     gap: 10px;
-    align-items: end;
-    width: 100%;
-    justify-content: center;
-    flex-wrap: wrap;
-}
-
-.divDesc,
-.divType,
-.divValue {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-}
-
-.newItem > button {
-    background-color: #2C73D2;
-    color: white;
-    border: none;
-    padding: 0 15px;
-    border-radius: 5px;
-    cursor: pointer;
-    height: 34px;
-}
-
-.newItem > button:hover {
-    background-color: #0056b3;
-}
-
-input,
-select {
-    padding: 5px;
-}
-
-/* tabela */
-
-.divTable{
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    max-height: 500px;   /* limita a altura */
-    overflow-y: auto;    /* cria scroll interno */
-}
-
-thead th{
-    position: sticky;
-    top: 0;
-    background: white;
-}
-
-table {
-    width: 100%;
-    overflow-x: auto;
-    border-radius: 5px;
-    padding: 20px 0;
-}
-
-th,
-td {
-    padding: 10px;
-    text-align: start;
-    border-bottom: inset 1px #ccc;
-     white-space: nowrap;
-}
-
-th {
-    text-align: left;
-}
-
-i {
-    font-size: 25px;
+    align-items: flex-end;
 }
 
 .bxs-chevron-up-circle {
@@ -137,278 +82,96 @@ i {
     color: red;
 }
 
-.columnAction {
-    width: 50px;
-    text-align: center;
+
+.divDesc, .divValue, .divType {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    flex: 1;
+    min-width: 120px; 
 }
 
-.columnAction > button {
-    background: transparent;
+input, select {
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    width: 100%;
+}
+
+#btnNew {
+    background-color: #2C73D2;
+    color: white;
     border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
     cursor: pointer;
+    transition: 0.3s;
+    font-weight: bold;
 }
 
-.columnAmount {
-    white-space: nowrap;
-    text-align: right;
+#btnNew:hover {
+    background-color: #0056b3;
 }
 
-.columnType {
-    width: 20%;
-    text-align: center;
+/* --- TABELA RESPONSIVA --- */
+.divTable {
+    width: 100%;
+    overflow-x: auto; 
+    max-height: 300px;
+    overflow-y: auto;
 }
 
-/* gráfico */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 450px; 
+}
 
+th, td {
+    padding: 12px 8px;
+    text-align: left;
+    border-bottom: 1px solid #eee;
+    font-size: 0.9rem;
+}
+
+.columnAmount { text-align: right; }
+.columnType, .columnAction { text-align: center; }
+
+/* --- GRÁFICO --- */
 .chartBox {
     width: 100%;
-    max-width: 350px;
-    height: 350px;
-    margin-top: 30px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    max-width: 300px;
+    margin: 0 auto;
 }
 
-.chartBox canvas {
-    width: 100% !important;
-    height: 100% !important;
+/* ---------- RESPONSIVIDADE (MOBILE) ---------- */
+@media (max-width: 500px) {
+    body {
+        padding: 10px;
+    }
+
+    main {
+        padding: 15px;
+    }
+
+
+    .newItem {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .divDesc, .divValue, .divType {
+        width: 100%;
+    }
+
+
+    .resume {
+        flex-wrap: wrap;
+    }
+
+    .resume div {
+        flex: 1 1 100%; 
+        margin-bottom: 5px;
+    }
 }
 
-/* Responsividade */
-
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-font-family:'Poppins',sans-serif;
-outline:none;
-}
-
-body{
-min-height:100vh;
-display:flex;
-justify-content:center;
-
-background-image:url("fundo.png");
-background-size:cover;
-background-position:center;
-background-repeat:no-repeat;
-
-/* remove bug mobile */
-background-attachment:scroll;
-}
-
-/* container principal */
-
-main{
-max-width:600px;
-width:100%;
-display:flex;
-flex-direction:column;
-align-items:center;
-padding:20px;
-background:#fff;
-border-radius:10px;
-box-shadow:0 4px 10px rgba(0,0,0,0.1);
-margin:20px;
-}
-
-/* resumo financeiro */
-
-.resume{
-display:flex;
-gap:10px;
-width:100%;
-justify-content:space-between;
-flex-wrap:wrap;
-}
-
-.resume div{
-flex:1;
-min-width:120px;
-display:flex;
-flex-direction:column;
-align-items:center;
-justify-content:center;
-box-shadow:0 0 5px #ccc;
-border-radius:12px;
-padding:10px;
-text-align:center;
-}
-
-/* formulário */
-
-.newItem{
-display:flex;
-gap:10px;
-width:100%;
-flex-wrap:wrap;
-align-items:flex-end;
-}
-
-.divDesc,
-.divType,
-.divValue{
-flex:1;
-min-width:120px;
-display:flex;
-flex-direction:column;
-gap:5px;
-}
-
-input,
-select{
-padding:8px;
-border-radius:5px;
-border:1px solid #ccc;
-}
-
-.newItem button{
-background:#2C73D2;
-color:white;
-border:none;
-padding:10px;
-border-radius:5px;
-cursor:pointer;
-}
-
-.newItem button:hover{
-background:#0056b3;
-}
-
-/* tabela */
-
-.divTable{
-width:100%;
-overflow-x:auto;
-max-height:400px;
-overflow-y:auto;
-margin-top:20px;
-}
-
-table{
-width:100%;
-min-width:500px;
-border-collapse:collapse;
-}
-
-thead th{
-position:sticky;
-top:0;
-background:white;
-z-index:2;
-}
-
-th,td{
-padding:10px;
-border-bottom:1px solid #ddd;
-white-space:nowrap;
-}
-
-th{
-text-align:left;
-}
-
-.columnAmount{
-text-align:right;
-}
-
-.columnType{
-text-align:center;
-}
-
-.columnAction{
-text-align:center;
-width:50px;
-}
-
-.columnAction button{
-background:transparent;
-border:none;
-cursor:pointer;
-}
-
-i{
-font-size:22px;
-}
-
-.bxs-chevron-up-circle{
-color:green;
-}
-
-.bxs-chevron-down-circle{
-color:red;
-}
-
-/* gráfico */
-
-.chartBox{
-width:100%;
-max-width:350px;
-height:350px;
-margin-top:30px;
-display:flex;
-justify-content:center;
-align-items:center;
-}
-
-.chartBox canvas{
-width:100%!important;
-height:100%!important;
-}
-
-/* ---------- RESPONSIVO ---------- */
-
-@media (max-width:768px){
-
-main{
-margin:10px;
-padding:15px;
-}
-
-.resume{
-flex-direction:column;
-}
-
-.resume div{
-width:100%;
-}
-
-.newItem{
-flex-direction:column;
-}
-
-.divDesc,
-.divType,
-.divValue{
-width:100%;
-}
-
-.newItem button{
-width:100%;
-}
-
-.chartBox{
-max-width:280px;
-height:280px;
-}
-
-table{
-font-size:14px;
-}
-
-}
-
-@media (max-width:480px){
-
-table{
-font-size:13px;
-}
-
-.chartBox{
-max-width:240px;
-height:240px;
-}
-
-}
